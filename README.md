@@ -14,7 +14,7 @@ Créer une plateforme moderne de **rencontres sociales géolocalisées**, centr�
 
 - Thomas propose un apéro chez lui à 19h.
 - Il aime le vin rouge et les ambiances jazzy.
-- Léa, à 500 m, reçoit la notification et accepte.
+- Charline, à 500 m, reçoit la notification et accepte.
 - Après cette rencontre, ils peuvent désormais s'inviter à dîner ou prendre un café ensemble.
 
 ## 🌅 Petit-déjeuner en plein air
