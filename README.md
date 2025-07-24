@@ -4,27 +4,26 @@ Skol est une application mobile sociale conçue pour permettre à des inconnus d
 
 Contrairement aux applications de dating classiques, **Skol favorise la création de liens humains authentiques**, dans une ambiance détendue et festive. Elle mise sur les préférences (boissons, lieux, musique, alimentation), la géolocalisation, et des moments de vie simples, pour déclencher des échanges sincères.
 
-
-## 🎯 Objectif
+# 🎯 Objectif :
 
 Créer une plateforme moderne de **rencontres sociales géolocalisées**, centrée sur le **partage de moments conviviaux**, la découverte humaine, l’échange culturel et la spontanéité — sans logique de séduction ou de réseau pro.
 
+# 🧩 Exemples d’utilisation
 
-## 🧩 Exemples d’utilisation
+## 🍷 Apéro chez un particulier
 
-### 🍷 Apéro chez un particulier
 - Thomas propose un apéro chez lui à 19h.
 - Il aime le vin rouge et les ambiances jazzy.
 - Léa, à 500 m, reçoit la notification et accepte.
 - Après cette rencontre, ils peuvent désormais s'inviter à dîner ou prendre un café ensemble.
 
-### 🌅 Petit-déjeuner en plein air
+## 🌅 Petit-déjeuner en plein air
+
 - Sofia souhaite organiser un petit-déj dans un parc dimanche matin.
 - Elle a déjà partagé un apéro avec Julien, qui accepte l'invitation.
 - Le lieu est visible dans l’appli, d'autres peuvent rejoindre.
 
-
-## 🔓 Déblocage progressif
+# 🔓 Déblocage progressif
 
 Un utilisateur ne peut :
 - participer à un **déjeuner**, **dîner**, **petit-déjeuner** ou **after** avec un autre profil,  
@@ -36,10 +35,10 @@ Ce système :
 - évite les dérives,
 - crée une première interaction courte avant des moments plus longs.
 
-
-## 🧑‍💼 Profils et préférences
+# 🧑‍💼 Profils et préférences
 
 Chaque utilisateur configure :
+
 - ✅ son **pseudo unique**
 - 🥂 **boissons préférées**
 - 🎵 **style musical**
@@ -49,8 +48,7 @@ Chaque utilisateur configure :
 - 📆 **disponibilités**
 - 🕶️ **niveau de visibilité** du profil
 
-
-## 🔁 Fonctionnalités
+# 🔁 Fonctionnalités
 
 - Création et gestion d’événements en duo ou en groupe
 - Matching via likes, superlikes et croisements
@@ -62,9 +60,14 @@ Chaque utilisateur configure :
 - Blocage et signalement avancés
 - Historique des interactions
 - Recherche par pseudo ou ID
+- Système de badges & niveaux
+- Abonnement premium
+- Agenda personnel
+- IA pour suggestions personnalisées
+- Invitations d’amis
+- Support utilisateur intégré
 
-
-## 🔧 Technologies & Modules utilisés
+# 🔧 Technologies & Modules utilisés
 
 - Node.js (JavaScript côté serveur)
 - Express.js (framework HTTP)
@@ -77,8 +80,7 @@ Chaque utilisateur configure :
 - socket.io (communication temps réel)
 - nodemon (rechargement automatique en dev)
 
-
-## 📁 Structure du projet
+# 📁 Structure du projet
 
 skol/
 
@@ -109,6 +111,15 @@ controllers :
 - activites.controller.js
 - filtres.controller.js
 - statistiques.controller.js
+- historique.controller.js
+- evaluations.controller.js
+- superlikes.controller.js
+- badget.controller.js
+- abonnement.controller.js
+- support.controller.js
+- invitations.controller.js
+- suggestion_ia.controller.js
+- agenda.controller.js
 
 models :
 
@@ -132,6 +143,15 @@ models :
 - activite.model.js
 - filtre.model.js
 - statistique.model.js
+- historique.model.js
+- evaluation.model.js
+- superlike.model.js
+- badget.model.js
+- abonnement.model.js
+- support.model.js
+- invitation.model.js
+- suggestion_ia.model.js
+- agenda.model.js
 
 routes :
 
@@ -155,6 +175,15 @@ routes :
 - activites.routes.js
 - filtres.routes.js
 - statistiques.routes.js
+- historique.routes.js
+- evaluations.routes.js
+- superlikes.routes.js
+- badget.routes.js
+- abonnement.routes.js
+- support.routes.js
+- invitations.routes.js
+- suggestion_ia.routes.js
+- agenda.routes.js
 
 middlewares :
 
@@ -180,10 +209,9 @@ fichiers racine :
 - server.js
 - package.json
 
+# 📌 Exemples de points de terminaison
 
-## 📌 Exemples de points de terminaison (à implémenter)
-
-### 🔐 Authentification
+## 🔐 Authentification
 
 - `POST /api/auth/inscription`  
   → Enregistre un nouvel utilisateur avec ses informations et ses préférences.  
@@ -192,8 +220,7 @@ fichiers racine :
 - `POST /api/auth/connexion`  
   → Vérifie les identifiants et renvoie un token JWT pour maintenir la session.
 
-
-### 👤 Utilisateurs
+## 👤 Utilisateurs
 
 - `GET /api/utilisateurs`  
   → Récupère tous les profils visibles à proximité (en fonction des préférences, rayon, etc.).
@@ -204,8 +231,7 @@ fichiers racine :
 - `DELETE /api/utilisateurs/:id`  
   → Supprime le compte utilisateur (suppression logique ou définitive selon le paramétrage).
 
-
-### 🍽️ Événements (apéros, repas...)
+## 🍽️ Événements (apéros, repas...)
 
 - `POST /api/evenements`  
   → Crée une nouvelle proposition de rencontre (apéritif par défaut, repas si débloqué).
@@ -216,8 +242,7 @@ fichiers racine :
 - `PUT /api/evenements/:id/valider`  
   → Permet à un utilisateur d’accepter ou refuser une invitation à un apéro/repas.
 
-
-### 💘 Matching
+## 💘 Matching
 
 - `POST /api/relations/aimer/:id`  
   → Envoie un like ou superlike à un autre utilisateur (selon le type de relation choisie).
@@ -225,8 +250,7 @@ fichiers racine :
 - `GET /api/relations/matchs`  
   → Affiche la liste des matchs mutuels confirmés entre utilisateurs.
 
-
-### 💬 Chat / Messages
+## 💬 Chat / Messages
 
 - `GET /api/messages/:id_utilisateur`  
   → Récupère l’historique de la messagerie différée avec un utilisateur spécifique.
@@ -235,92 +259,43 @@ fichiers racine :
   → Envoie un message asynchrone (différé) à un autre utilisateur, même s’il est hors ligne.
 
 - **Socket.io (WebSocket)**  
+
   → Permet une communication en **temps réel** :
   - Connexion à un salon de discussion privé entre 2 utilisateurs
   - Affichage de l’état “en ligne” ou “en train d’écrire”
   - Notifications instantanées de nouveaux messages
 
-
-## ✅ Bonnes pratiques (a venir)
+# ✅ Bonnes pratiques
 
 - Architecture **MVC** claire
 - Routes **RESTful**
-- Middleware centralisé pour les erreurs et l’auth
+- Middleware centralisé pour les erreurs et l’authentification
 - Sécurité `.env` + mot de passe haché
 - Code modulaire, commenté et propre
+- Fichiers séparés pour chaque module
+- Utilisation de middlewares globaux (`langue`, `auth`, `errorHandler`)
+- Nommage cohérent des fichiers (`.controller.js`, `.model.js`, `.routes.js`)
 
-
-## 🔐 Sécurité (a venir)
+# 🔐 Sécurité
 
 - JWT + rôles (admin / utilisateur)
 - Blocage / signalement d’abus
-- Contrôle des autorisations
-- Nettoyage des données sensibles
+- Contrôle d’accès middleware sur chaque route sensible
+- Nettoyage automatique des données sensibles
+- Protection contre les injections SQL (requêtes préparées)
+- Headers sécurisés via `helmet`
+- Gestion des erreurs centralisée
 
+# 📂 Étapes suivantes
 
-## 📂 Étapes suivantes
+- 🧪 **Tests Postman** sur toutes les routes (CRUD)
+- 📦 Ajout de tests automatisés (Jest / Supertest)
+- 📱 Connexion au front mobile (React Native)
+- 📈 Déploiement backend + base distante (Railway / PlanetScale / Render)
+- 🛠️ Monitoring et logs de production
+- 💬 Intégration notifications push Firebase
 
-⚠️ À ce stade, seule la structure du projet a été créée (dossiers et fichiers).  
-**Toutes les fonctionnalités sont à développer.**
-
-### 📁 Initialisation
-- Configurer `.env`
-- Installer les modules de base
-- Mettre en place Express dans `server.js`
-- Ajouter CORS, Morgan, middlewares globaux
-
-### 🗃️ Base de données
-- Écrire `schema.sql`
-- Connecter MySQL via `db.js`
-- Tester les connexions et requêtes
-
-### 🔐 Auth
-- Créer routes d’inscription et connexion
-- Gérer le hash des mots de passe
-- Générer les tokens JWT
-- Protéger les routes sensibles
-
-### 👤 Utilisateurs
-- CRUD complet
-- Gestion des préférences et disponibilité
-- Recherche par pseudo / ID
-
-### 📍 Localisation
-- Suivi en temps réel
-- Calcul de proximité
-- Croisement façon Happn
-
-### 🍽️ Événements
-- Apéros, repas, afters
-- Déblocage progressif
-- Groupes
-
-### ❤️ Matching
-- Likes, superlikes
-- Suggestions
-- Historique des matchs
-
-### 💬 Chat / Messagerie
-- Socket.io (temps réel)
-- API REST pour les messages différés
-- Statut de saisie, en ligne
-
-### 🔧 Paramètres & Traduction
-- Préférences perso
-- Langues de l’interface
-- Gestion dynamique
-
-### 🛡️ Signalement / sécurité
-- Système de blocage
-- Modération
-- Contrôle admin
-
-### 🧪 Tests
-- Postman sur chaque route
-- Tests automatisés futurs
-
-
-## ✍️ Auteur
+# ✍️ Auteur
 
 **Kossi Boris Namessi**  
 Développeur Web Full Stack – Formation RNCP – 2025  
